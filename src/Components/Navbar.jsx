@@ -5,13 +5,13 @@ import { TbTruckDelivery } from 'react-icons/tb'
 import { FaUserFriends, FaWallet } from 'react-icons/fa'
 import { MdFavorite, MdHelp } from 'react-icons/md'
 
-import Popup from 'reactjs-popup';
-import 'reactjs-popup/dist/index.css';
 
 
 const Navbar = () => {
 
     const [nav, setNav] = useState(false)
+    
+    const [search, setSearch] = useState(false)
 
     function handleMenu() {
         setNav(!nav)
