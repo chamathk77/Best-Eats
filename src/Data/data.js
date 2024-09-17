@@ -184,7 +184,7 @@ export const data = [
   export const Admincategories = [
     {
       id: 1,
-      name: 'Fast Food',
+      name: 'Food & Food Menu Management',
       image:
         'https://duyt4h9nfnj50.cloudfront.net/new_search_home_eats_icon/FastFood_BrowseHome@3x.png',
     },
