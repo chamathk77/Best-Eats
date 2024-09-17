@@ -18,11 +18,17 @@ import AdminLogin from "./Screens/AdminLogin/AdminLogin";
 // import About from './About';
 // import Contact from './Contact';
 
+import LoginPage from './Screens/LogInScreen/LogInScreen';
+import SignupPage from './Screens/SignUpScreen/SignUpScreen';
+
 const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+      <Route path="/" element={<LoginPage />} />
+      <Route path="/signup" element={<SignupPage />} />
+      <Route path="/homepage" element={<HomePage />} />
+
         {/* <Route path="/about" element={<About />} /> */}
         {/* <Route path="/contact" element={<Contact />} /> */}
         <Route path="/adminLogin" element={<AdminLogin />} />
