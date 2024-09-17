@@ -1,12 +1,30 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { UpdateUserName } from "../../Redux/reducers/LoginReducer";
+
+
 
 function SignupPage() {
+  const [username, setUsername] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleSignup = (e) => {
     e.preventDefault();
     // Add logic for user signup
+  };
+
+  const handleSignupRedirect = () => {
+    dispatch(UpdateUserName(username));
+    navigate("/homepage");
   };
 
   return (
@@ -16,12 +34,25 @@ function SignupPage() {
         <form onSubmit={handleSignup} style={styles.form}>
           <div style={styles.inputGroup}>
             <div style={styles.inputWrapper}>
+              <label htmlFor="username" style={styles.label}>Username</label>
+              <input
+                type="text"
+                id="username"
+                style={styles.input}
+                required
+                onChange={(e) => setUsername(e.target.value)}
+              />
+            </div>
+          </div>
+          <div style={styles.inputGroup}>
+            <div style={styles.inputWrapper}>
               <label htmlFor="firstName" style={styles.label}>First Name</label>
               <input
                 type="text"
                 id="firstName"
                 style={styles.input}
                 required
+                onChange={(e) => setFirstName(e.target.value)}
               />
             </div>
             <div style={styles.inputWrapper}>
@@ -31,6 +62,7 @@ function SignupPage() {
                 id="lastName"
                 style={styles.input}
                 required
+                onChange={(e) => setLastName(e.target.value)}
               />
             </div>
           </div>
@@ -41,6 +73,7 @@ function SignupPage() {
               id="email"
               style={styles.input}
               required
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div style={styles.inputWrapper}>
@@ -50,6 +83,7 @@ function SignupPage() {
               id="phone"
               style={styles.input}
               required
+              onChange={(e) => setPhoneNumber(e.target.value)}
             />
           </div>
           <div style={styles.inputWrapper}>
@@ -59,6 +93,7 @@ function SignupPage() {
               id="password"
               style={styles.input}
               required
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <div style={styles.inputWrapper}>
@@ -68,12 +103,13 @@ function SignupPage() {
               id="confirmPassword"
               style={styles.input}
               required
+              onChange={(e) => setConfirmPassword(e.target.value)}
             />
           </div>
           <button
             type="submit"
             style={styles.button}
-            onClick={() => navigate('/homepage')}
+            onClick={handleSignupRedirect}
           >
             Sign Up
           </button>
