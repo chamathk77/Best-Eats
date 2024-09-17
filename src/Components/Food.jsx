@@ -19,11 +19,66 @@ const Food = () => {
     }
 
     function filterPrice(price){
-        setfoods(
-            data.filter((item)=>{
-                return item.price===price
+
+        if (price == '1000'){
+
+            const NewArry=data.filter((item)=>{
+            
+                const extractedPrice = parseFloat(item.price.replace(/\D/g, ''));  // Removes all non-digit characters
+    
+                console.log("---------------------- PRICE",(extractedPrice))
+                return extractedPrice < price  && extractedPrice > 0
+                
+                ; 
+                
             })
-        )
+
+            setfoods(NewArry)
+
+            return
+
+        }
+
+        if (price == '2000'){
+
+            const NewArry=data.filter((item)=>{
+            
+                const extractedPrice = parseFloat(item.price.replace(/\D/g, ''));  // Removes all non-digit characters
+    
+                console.log("---------------------- PRICE",(extractedPrice))
+                return extractedPrice < price  && extractedPrice > 1000
+                
+                ; 
+                
+            })
+
+            setfoods(NewArry)
+
+            return
+
+        }
+
+        if (price == '3000'){
+
+            const NewArry=data.filter((item)=>{
+            
+                const extractedPrice = parseFloat(item.price.replace(/\D/g, ''));  // Removes all non-digit characters
+    
+                console.log("---------------------- PRICE",(extractedPrice))
+                return extractedPrice < price  && extractedPrice > 2000
+                
+                ; 
+                
+            })
+
+            setfoods(NewArry)
+
+            return
+
+        }
+
+
+       
     }
   return (
     <div className='max-w-[1640px] m-auto px-4 py-12'> 
@@ -59,14 +114,13 @@ const Food = () => {
             <div>
                 <p className='font-bold text-gray-700'>Filter price</p>
                 <div className='flex justify-between max-w-[390px]'>
-                    <button onClick={()=>filterPrice('$')} className='m-1 border-orange-800 text-orange-600 hover:bg-orange-600 hover:text-white'>
-                     $</button>
-                    <button onClick={()=>filterPrice('$$')} className='m-1 border-orange-800 text-orange-600 hover:bg-orange-600 hover:text-white'> 
-                    $$</button>
-                    <button onClick={()=>filterPrice('$$$')} className='m-1 border-orange-800 text-orange-600 hover:bg-orange-600 hover:text-white'> 
-                    $$$</button>
-                    <button onClick={()=>filterPrice('$$$$')} className='m-1 border-orange-800 text-orange-600 hover:bg-orange-600 hover:text-white'> 
-                    $$$$</button>
+                    <button onClick={()=>filterPrice('1000')} className='m-1 border-orange-800 text-orange-600 hover:bg-orange-600 hover:text-white'>
+                     0 - 1000</button>
+                    <button onClick={()=>filterPrice('2000')} className='m-1 border-orange-800 text-orange-600 hover:bg-orange-600 hover:text-white'> 
+                    1000 - 2000</button>
+                    <button onClick={()=>filterPrice('3000')} className='m-1 border-orange-800 text-orange-600 hover:bg-orange-600 hover:text-white'> 
+                    2000 - 3000</button>
+                 
 
                 </div>
 
