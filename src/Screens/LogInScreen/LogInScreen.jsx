@@ -12,6 +12,7 @@ function LoginPage() {
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
+    
     e.preventDefault();
     // Add logic for user login
   };
